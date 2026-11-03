@@ -1,0 +1,8 @@
+.orbit-line{position:absolute!important;top:50%;left:50%;border:1px solid #2b302d;border-radius:50%;transform:translate(-50%,-50%)}
+.orbit-line--inner{width:185px;height:185px}.orbit-line--outer{width:300px;height:300px}
+.orbit .sun{position:absolute;top:50%;left:50%;width:38px;height:38px;margin:-19px;border-radius:50%;background:radial-gradient(circle at 35% 32%,#f1e9c8 0 10%,#c9c59d 35%,#777d68 100%);box-shadow:0 0 22px 5px #c8c99d55;animation:sunPulse 5s ease-in-out infinite}
+.orbit .earth-track{position:absolute;top:50%;left:50%;width:185px;height:185px;margin:-92.5px;border-radius:50%;animation:orbitEarth 18s linear infinite}
+.orbit .earth{position:absolute;top:50%;left:-6px;width:12px;height:12px;margin-top:-6px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#d3d6c0 0 18%,#718178 45%,#36443f 100%);box-shadow:0 0 12px #aebca455}
+.orbit .moon-track{position:absolute;top:50%;left:50%;width:34px;height:34px;margin:-17px;border:1px solid #59605766;border-radius:50%;animation:orbitMoon 3.8s linear infinite}
+.orbit .moon{position:absolute;top:-3px;left:50%;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:#d2d0bd;box-shadow:0 0 7px #d2d0bd88}
+@keyframes orbitEarth{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}@keyframes orbitMoon{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}@keyframes sunPulse{0%,100%{transform:scale(1);opacity:.82}50%{transform:scale(1.08);opacity:1}}
