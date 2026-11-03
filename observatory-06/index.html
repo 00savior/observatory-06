@@ -66,7 +66,7 @@
         { date: '07.02.24', type: 'Notebook', title: 'A collection of almost-colours', imageClass: 'note-image--colour' }
       ];
       document.querySelector('#portals').innerHTML = portals.map((item) => `
-        <a class="portal-card" href="#field-notes"><span class="card-number">${item.number}</span><span class="card-title">${item.title}</span><span class="card-description">${item.description}</span><span class="card-link">${item.label} <b>↗</b></span></a>
+        <a class="portal-card" href="${item.title === 'Music' ? 'music.html' : '#field-notes'}"><span class="card-number">${item.number}</span><span class="card-title">${item.title}</span><span class="card-description">${item.description}</span><span class="card-link">${item.label} <b>↗</b></span></a>
       `).join('');
       document.querySelector('#notes').innerHTML = notes.map((item) => `
         <article class="note-card"><div class="note-image ${item.imageClass}" aria-hidden="true"><span>${item.date}</span></div><div class="note-meta"><span>${item.type}</span><span>${item.date}</span></div><h3>${item.title}</h3><a href="#about">Read observation <b>↗</b></a></article>
