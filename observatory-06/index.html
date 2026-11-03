@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101111" />
+    <meta name="description" content="OBSERVATORY 06 — a quiet personal field station for music, experiments, notes and elsewhere." />
+    <title>OBSERVATORY 06</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="wordmark" href="#top" aria-label="Observatory 06 home">OBSERVATORY <span>06</span></a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="#field-notes">Field notes</a>
+          <a href="#about">About</a>
+        </nav>
+        <div class="status"><i></i> online / quiet mode</div>
+      </header>
+
+      <main id="top">
+        <section class="hero" aria-labelledby="hero-title">
+          <p class="eyebrow">Personal field station · 31°13′N 121°28′E</p>
+          <div class="hero-copy">
+            <h1 id="hero-title">A small room<br /><em>for looking closer.</em></h1>
+            <p class="hero-intro">An ongoing archive of sound, light, experiments and things found between places.</p>
+          </div>
+          <div class="hero-meta"><span>EST. 2024</span><span>ISSUE 01 / 04</span></div>
+          <div class="orbit" aria-hidden="true"><span></span></div>
+        </section>
+
+        <section class="portal-section" aria-labelledby="portals-title">
+          <div class="section-heading"><p class="eyebrow">01 / Enter the station</p><h2 id="portals-title">Rooms of interest</h2></div>
+          <div id="portals" class="portal-grid"></div>
+        </section>
+
+        <section id="field-notes" class="notes-section" aria-labelledby="notes-title">
+          <div class="section-heading"><p class="eyebrow">02 / Selected observations</p><h2 id="notes-title">Recent signals</h2></div>
+          <div id="notes" class="notes-grid"></div>
+        </section>
+
+        <section id="about" class="about-section" aria-labelledby="about-title">
+          <p class="eyebrow">03 / Transmission</p>
+          <div><h2 id="about-title">Still collecting<br /><em>small evidence.</em></h2><p>This is a living notebook for unfinished thoughts, late-night listening, visual studies and quiet detours. The archive will grow slowly.</p></div>
+        </section>
+      </main>
+
+      <footer class="site-footer"><span>OBSERVATORY 06</span><span>KEEPING A RECORD OF THE LIGHT</span><span id="year"></span></footer>
+    </div>
+    <script>
+      const portals = [
+        { number: '01', title: 'Music', description: 'Albums, fragments, and sounds that stay after the room goes quiet.', label: 'Open archive' },
+        { number: '02', title: 'Laboratory', description: 'Small experiments in code, image, sound, and physical space.', label: 'Enter lab' },
+        { number: '03', title: 'Notebook', description: 'Loose observations, questions, sketches, and unfinished sentences.', label: 'Read notes' },
+        { number: '04', title: 'Elsewhere', description: 'Coordinates, places, photographs, and traces from outside.', label: 'View elsewhere' }
+      ];
+      const notes = [
+        { date: '09.24.24', type: 'Listening log', title: 'The shape of a song after midnight', imageClass: 'note-image--night' },
+        { date: '08.18.24', type: 'Field study', title: 'Notes on fog, glass and distant infrastructure', imageClass: 'note-image--fog' },
+        { date: '07.02.24', type: 'Notebook', title: 'A collection of almost-colours', imageClass: 'note-image--colour' }
+      ];
+      document.querySelector('#portals').innerHTML = portals.map((item) => `
+        <a class="portal-card" href="#field-notes"><span class="card-number">${item.number}</span><span class="card-title">${item.title}</span><span class="card-description">${item.description}</span><span class="card-link">${item.label} <b>↗</b></span></a>
+      `).join('');
+      document.querySelector('#notes').innerHTML = notes.map((item) => `
+        <article class="note-card"><div class="note-image ${item.imageClass}" aria-hidden="true"><span>${item.date}</span></div><div class="note-meta"><span>${item.type}</span><span>${item.date}</span></div><h3>${item.title}</h3><a href="#about">Read observation <b>↗</b></a></article>
+      `).join('');
+      document.querySelector('#year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
